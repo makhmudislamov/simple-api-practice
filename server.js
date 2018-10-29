@@ -21,13 +21,14 @@ app.get('/', (req, res) => {
         res.json(venues)
     })
 
-    app.listen(port, () => {
-      console.log('App listening on port 3000!')
-  })
 
-// //SHOW one venue
-// app.get('/venues/', (req, res) => {
-//
-//         res.send(Json(venues[0]))
-//
-// })
+//SHOW one (hard-coded) venue
+app.get('/venues/:index', (req, res) => {
+
+        res.json(venues[req.params.index])
+
+})
+
+app.listen(port, () => {
+  console.log('App listening on port 3000!')
+})
