@@ -18,17 +18,26 @@ events = ["Cookies and Code", "Phantom of the Opera", "Crazy Rich Asians", "CalH
 //INDEX
 app.get('/', (req, res) => {
         //start of the promise
-        res.json(venues)
+        res.json("you will see venues and the events in this website")
     })
 
-
-//SHOW one (hard-coded) venue
-app.get('/venues/:index', (req, res) => {
-
-        res.json(venues[req.params.index])
-
+app.get('/venues', (req, res) => {
+        //start of the promise
+        res.json(venues)
 })
 
+
+//SHOW one (hard-coded) venue >>> PEER REVIEW: /venues/venueId
+app.get('/venues/venueId', (req, res) => {
+        // pulling one venue from venues array
+        res.json(venues[0])
+
+})
+// PEER REVIEW from Aktar and Makhmud >>>  showing one event of one venue
+app.get('/venues/venueId/eventId', (req, res) => {
+        // pulling some event from events array >> mocking
+        res.json(events.slice(0,2))
+})
 app.listen(port, () => {
   console.log('App listening on port 3000!')
 })
